@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Text Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+  <div class="background-stars"></div>
+  <div class="background-gradient-overlay"></div>
+
+  <header class="navbar navbar-expand-lg py-4 mb-5 glassmorphism-header">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="#">
+        <i class="fas fa-satellite-dish me-3 text-accent"></i><span class="text-white">AI TEXT DETECTOR</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <h1 class="display-5 text-center mb-5 fw-bold text-white-75 animate-scale-in">
+      Uncover the Origin: <span class="text-accent-span">AI or Human?</span>
+    </h1>
+
+    <form id="analysis-form" class="mb-5 p-4 p-md-5 rounded-3 glassmorphism-card animate-fade-in delay-1">
+      <label for="input-text" class="form-label fw-semibold fs-5 text-white">Enter text for analysis:</label>
+      <div class="position-relative mb-3">
+        <textarea id="input-text" class="form-control form-control-lg custom-textarea" rows="7" maxlength="5000" placeholder="Paste your article, essay, or message here..."></textarea>
+        <button type="button" id="copy-btn" class="btn btn-sm copy-button" title="Copy text">
+          <i class="fas fa-copy"></i>
+        </button>
+      </div>
+      
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <small id="char-count" class="text-white-50">0 / 5000</small>
+        <button type="submit" id="analyze-btn" class="btn btn-primary btn-lg custom-analyze-btn" disabled>
+          <span id="btn-text"><i class="fas fa-brain me-2"></i> Analyze Text</span>
+          <div id="loading-spinner" class="spinner-border spinner-border-sm d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </form>
+
+    <div id="result-display" class="d-none p-4 p-md-5 rounded-3 glassmorphism-card animate-fade-in delay-2">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-auto text-center mb-4 mb-md-0">
+          <div id="result-icon-container" class="result-icon-wrapper mx-auto">
+            <i id="result-icon" class="mb-3"></i>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <h2 id="result-title" class="text-center text-md-start fw-bold mb-3 animate-fade-in delay-3 text-white"></h2>
+          <p id="result-message" class="fs-5 text-center text-md-start mb-3 animate-fade-in delay-4 text-white-75"></p>
+          <p id="result-confidence" class="text-center text-md-start text-white-50 fs-6 animate-fade-in delay-5"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-white-50 small py-4 mt-5 border-top border-secondary-dark">
+    © 2025 AI Text Detector | All Rights Reserved
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
