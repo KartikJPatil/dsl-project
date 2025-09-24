@@ -28,15 +28,42 @@
 
     <form id="analysis-form" class="mb-5 p-4 p-md-5 rounded-3 glassmorphism-card animate-fade-in delay-1">
       <label for="input-text" class="form-label fw-semibold fs-5 text-white">Enter text for analysis:</label>
+      
+      <!-- File Upload Section -->
+      <div class="file-upload-section mb-4">
+        <div id="file-drop-zone" class="file-drop-zone">
+          <div class="file-upload-content">
+            <i class="fas fa-cloud-upload-alt mb-3 text-accent-span" style="font-size: 2.5rem;"></i>
+            <h5 class="text-white mb-2">Upload a Document</h5>
+            <p class="text-white-50 mb-3">Drag and drop a file here, or click to browse</p>
+            <input type="file" id="file-input" accept=".txt,.pdf,.docx,.doc" style="display: none;">
+            <button type="button" id="browse-btn" class="btn btn-outline-primary btn-sm">
+              <i class="fas fa-folder-open me-2"></i>Browse Files
+            </button>
+            <div class="file-info mt-3" id="file-info" style="display: none;">
+              <div class="alert alert-info d-flex align-items-center">
+                <i class="fas fa-file-alt me-2"></i>
+                <span id="file-name"></span>
+                <button type="button" class="btn-close ms-auto" id="remove-file"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mb-3">
+        <span class="text-white-50">OR</span>
+      </div>
+
       <div class="position-relative mb-3">
-        <textarea id="input-text" class="form-control form-control-lg custom-textarea" rows="7" maxlength="5000" placeholder="Paste your article, essay, or message here..."></textarea>
+        <textarea id="input-text" class="form-control form-control-lg custom-textarea" rows="7" maxlength="20000" placeholder="Paste your article, essay, or message here..."></textarea>
         <button type="button" id="copy-btn" class="btn btn-sm copy-button" title="Copy text">
           <i class="fas fa-copy"></i>
         </button>
       </div>
       
       <div class="d-flex justify-content-between align-items-center mt-3">
-        <small id="char-count" class="text-white-50">0 / 5000</small>
+        <small id="char-count" class="text-white-50">0 / 20000</small>
         <button type="submit" id="analyze-btn" class="btn btn-primary btn-lg custom-analyze-btn" disabled>
           <span id="btn-text"><i class="fas fa-brain me-2"></i> Analyze Text</span>
           <div id="loading-spinner" class="spinner-border spinner-border-sm d-none" role="status">

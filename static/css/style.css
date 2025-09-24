@@ -152,3 +152,96 @@ button#analyze-btn:hover:not(:disabled) {
   80% { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
+
+/* File Upload Styles */
+.file-upload-section {
+  margin-bottom: 1.5rem;
+}
+
+.file-drop-zone {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-drop-zone:hover {
+  border-color: var(--primary-color);
+  background: rgba(0, 119, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.file-drop-zone.drag-over {
+  border-color: var(--accent-color);
+  background: rgba(255, 204, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.file-upload-content {
+  width: 100%;
+}
+
+.file-drop-zone .btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.file-drop-zone .btn-outline-primary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
+}
+
+.file-info .alert {
+  background: rgba(0, 119, 255, 0.1);
+  border: 1px solid rgba(0, 119, 255, 0.3);
+  color: var(--secondary-color);
+  border-radius: 0.5rem;
+}
+
+.file-info .btn-close {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.file-info .btn-close:hover {
+  opacity: 1;
+}
+
+/* Animation Classes */
+.animate-scale-in {
+  animation: scaleIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in.delay-1 { animation-delay: 0.1s; }
+.animate-fade-in.delay-2 { animation-delay: 0.2s; }
+.animate-fade-in.delay-3 { animation-delay: 0.3s; }
+.animate-fade-in.delay-4 { animation-delay: 0.4s; }
+.animate-fade-in.delay-5 { animation-delay: 0.5s; }
+
+@keyframes scaleIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

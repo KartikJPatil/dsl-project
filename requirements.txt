@@ -1,3 +1,5 @@
 flask
 flask-cors
 requests
+PyPDF2
+python-docx
