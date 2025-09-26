@@ -13,15 +13,15 @@ CORS(app)
 FASTDETECTGPT_API_URL = "https://api.fastdetect.net/api/detect"
 FASTDETECTGPT_API_KEY = os.getenv("FASTDETECTGPT_API_KEY")
 
-# Configure file upload settings
-UPLOAD_FOLDER = 'uploads'
+# Configure file upload settings (use /tmp for Vercel)
+UPLOAD_FOLDER = '/tmp/uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'docx', 'doc'}
 MAX_FILE_SIZE = 16 * 1024 * 1024  # 16MB max file size
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 
-# Ensure upload directory exists
+# Ensure upload directory exists inside /tmp
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def allowed_file(filename):
@@ -70,8 +70,6 @@ def extract_text_from_file(file_content, filename):
         return extract_text_from_docx(file_content)
     else:
         raise Exception(f"Unsupported file type: {file_extension}")
-
-# Use environment variable on Vercel
 
 @app.route("/")
 def home():
